@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,10 @@
         <h1>Displaying the django form</h1>
         <form method="POST">
             {% csrf_token %}
-                {{form_object.as_p}}
+            <!--
+                {{form_object|crispy}}
+            -->
+                {{form_object.name|as_crispy_field}}
 
             <input type="submit" value="Submit">
         </form>
